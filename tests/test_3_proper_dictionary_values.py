@@ -1,8 +1,5 @@
-# test_3_proper_dictionary_values.py
-
 max_score = 45  # This value is pulled by yml_generator.py to assign a score to this test.
 from conftest import normalize_text, load_or_reload_module, format_error_message, exception_message_for_students
-import pytest
 
 # Checks if a correct dictionary is created given certain inputs
 def test_3_proper_dictionary_values(test_cases):
@@ -29,11 +26,20 @@ def test_3_proper_dictionary_values(test_cases):
                         normalized_expected_dict = {normalize_text(key): normalize_text(value) for key, value in expected_dictionary.items()}
                         normalized_expected_dicts.append(normalized_expected_dict)
 
+                
+
                 # Load in the student's code and get globals
                 _, _, student_globals = load_or_reload_module(inputs, test_case)
+                
+                # Get the locals from 'main' function
+                student_locals = student_globals.get('__main_locals__', {})
 
                 # Find all variables in student's code that are of type dictionary
-                student_dictionaries = {name: value for name, value in student_globals.items() if isinstance(value, dict) and name != "__builtins__"}
+                student_dictionaries = {name: value for name, value in student_globals.items() if isinstance(value, dict) and name != "__builtins__" and name != "__main_locals__"}
+
+                # Also include dictionaries from student_locals
+                student_dictionaries.update({name: value for name, value in student_locals.items() if isinstance(value, dict)})
+
 
                 # Assert that there is at least one dictionary
                 assert student_dictionaries, (
@@ -76,17 +82,21 @@ def test_3_proper_dictionary_values(test_cases):
                         test_case=test_case,
                         display_inputs=True
                     )
-                # If match found, test passes
+            # assert raises an AssertionError, but I don't want to actually catch it
+            # this is just so I can have another Exception catch below it in case
+            # anything else goes wrong.
             except AssertionError:
-                # Re-raise AssertionErrors to let pytest handle them
                 raise
+            
             except Exception as e:
+                # Handle other exceptions
                 exception_message_for_students(e, test_case)
     
+    # the first AssertionError raises the problem here, this raises it to the main level so the test will stop
     except AssertionError:
         raise
 
     except Exception as outer_e:
-        # Handle problems with test_cases (e.g., invalid type or structure)
+        # Catches any problem in grabbing the test cases
         test_case = {"id_test_case": None}
-        exception_message_for_students(outer_e, test_case=test_case)  # Pass `None` since test_case is not valid
+        exception_message_for_students(outer_e, test_case=test_case) 
