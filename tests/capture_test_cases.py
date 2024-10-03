@@ -12,7 +12,7 @@ import os
 import types
 
 # Name of the file that will be run to generate the test cases from:
-solution_file_to_run = "a4_solution_friend_tracker.py"
+solution_file_to_run = "a5_solution_soccer_teams.py"
 # Name of the JSON file that is created after running the script:
 json_export_filename = 'test_cases_drafts.json'
 
