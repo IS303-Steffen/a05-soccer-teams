@@ -2,6 +2,13 @@ max_score = 10  # This value is pulled by yml_generator.py to assign a score to 
 from conftest import normalize_text, load_student_code, format_error_message, exception_message_for_students
 import re
 
+'''
+For fute refactoring: Look at the line that says final season reord and calculate the win percentage based off of that
+to see if they wrote the if statement correctly,
+
+'''
+
+
 # Checks if the expected printed messages actually appear, but doesn't check for specific inputs or correct calculations.
 def test_6_final_performance_messages(test_cases):
     try:
@@ -11,8 +18,6 @@ def test_6_final_performance_messages(test_cases):
 
         combined_normalized_printed = ''
         final_1, final_2, final_3 = ["qualified for the ncaa soccer tournament", "you had a good season", "your team needs to practice"]
-        flag_1, flag_2, flag_3 = [False, False, False]
-        found_phrases = []
         # Loop through each test case
         for test_case in test_cases:
             try:
@@ -20,7 +25,9 @@ def test_6_final_performance_messages(test_cases):
                 inputs = test_case["inputs"]
                 num_repeat_iterations = 50
 
-                # repeat test case 30 times, should have a 99.9999% chance of finding a tie score if it exists.
+                final_season_record_regex = re.compile('Final season record.*', re.IGNORECASE)
+
+                # repeat test case 50 times, should have a 99.9999% chance of finding a tie score if it exists.
                 for _ in range(num_repeat_iterations):
                     # Load in the student's code and capture output
                     _, captured_output, _ = load_student_code(inputs, test_case)
@@ -28,56 +35,61 @@ def test_6_final_performance_messages(test_cases):
                     # Split the captured output into lines
                     captured_lines = captured_output.splitlines()
                     
-                    # Normalize the captured output to remove spaces, punctuation, and symbols
                     normalized_captured_print_statements = [normalize_text(captured_print) for captured_print in captured_lines]
                     normalized_captured_print_statements = '\n'.join(normalized_captured_print_statements)
-                    combined_normalized_printed += f"\n{normalized_captured_print_statements}"
 
-                    if (final_1 not in normalized_captured_print_statements
-                        and final_2 not in normalized_captured_print_statements
-                        and final_3 not in normalized_captured_print_statements):
-                        assert False, format_error_message(
-                    custom_message=(f"Your code should always print out one of these 3 options, but currently does not:\n\n "
-                                    f"{final_1, final_2, final_3}\n\n"
-                                    f"Double check your spelling, or that your if statement logic makes a final season message always print.\n\n"
+                    # first catch if they ever print out actual tie scores:
+                    for line in captured_lines:
+                        match = final_season_record_regex.search(line)
+                        if match:
+                            break
+
+                    assert match, format_error_message(
+                    custom_message=(f"The test couldn't find any printed statement for:\n\n"
+                                    f"\"Final season record <# wins> - <# losses>\"\n\n"
+                                    f"If you are printing a message like that, double check your spelling. "
                                     f"Below are all the printed messages from your code (ignoring punctuation / capitalization):\n\n"
-                                    f"{combined_normalized_printed}\n\n"),
+                                    f"{normalized_captured_print_statements}\n\n"),
                     test_case=test_case,
                     display_inputs=True,
-                )
+                    )
 
-                    # checking if each final message appears at least once
-                    # simultaneously checks that the other statements don't appear to 
-                    # incorrectly pass code that just prints the statements each time.
-                    if (final_1 in normalized_captured_print_statements
-                        and final_2 not in normalized_captured_print_statements
-                        and final_3 not in normalized_captured_print_statements):
-                        flag_1 = True
-                        found_phrases.append(final_1)
+                    final_record_str = match.group()
+                    numbers = re.findall(r'\d+', final_record_str)
+                    # Convert found numbers to integers
+                    numbers = [int(num) for num in numbers]
 
-                    elif (final_2 in normalized_captured_print_statements
-                        and final_1 not in normalized_captured_print_statements
-                        and final_3 not in normalized_captured_print_statements):
-                        flag_2 = True
-                        found_phrases.append(final_2)
-
-                    elif (final_3 in normalized_captured_print_statements
-                        and final_2 not in normalized_captured_print_statements
-                        and final_1 not in normalized_captured_print_statements):
-                        flag_3 = True
-                        found_phrases.append(final_3)
-
-                    if flag_1 and flag_2 and flag_3:
-                        break
-                        
-                assert flag_1 and flag_2 and flag_3, format_error_message(
-                    custom_message=(f"Your code should print out at least one of these final season messages after each season:\n\n "
-                                    f"{final_1, final_2, final_3}\n\n"
-                                    f"But, across 50 repeats of your code, only these get printed:\n\n"
-                                    f"{found_phrases}\n\n"
-                                    f"Double check your spelling, or that your if statement logic makes a final season message always print.\n\n"
+                    assert len(numbers) == 2, format_error_message(
+                    custom_message=(f"The test couldn't find exactly 2 numbers in the printed statement for:\n\n"
+                                    f"\"Final season record <# wins> - <# losses>\"\n\n"
+                                    f"If you are printing a message like that, double check your spelling. Make sure you don't include only 1 number or more than 2. "
                                     f"Below are all the printed messages from your code (ignoring punctuation / capitalization):\n\n"
-                                    f"{combined_normalized_printed}\n\n"),
+                                    f"{normalized_captured_print_statements}\n\n"),
+                    test_case=test_case,
+                    display_inputs=True,
+                    )
+
+                    season_record_percent = numbers[0] / sum(numbers)
+
+                    if season_record_percent >= .75:
+                        final_message = final_1
+                    elif season_record_percent >= .50:
+                        final_message = final_2
+                    else:
+                        final_message = final_3
+
+                    
+                    assert final_message in normalized_captured_print_statements, format_error_message(
+                    custom_message=(f"In this run, your code produced the final season record of:\n\n"
+                                    f"{final_record_str}\n\n"
+                                    f"With {numbers[0]} wins, and {sum(numbers)} total games played (wins + losses). Which implies a "
+                                    f"{season_record_percent:.2%} win rate. Given that win rate, your code should print out:\n\n"
+                                    f"{final_message}\n\n"
+                                    f"But that couldn't be found in your printed output. Double check that you are correctly displaying "
+                                    f"wins and losses in the \"Final season record\" message, correctly calculating wins and losses, "
+                                    f"and that your if statements are constructed to correctly print the correct final message. Double check your spelling too.\n\n"
+                                    f"Below are all the printed messages from your code (ignoring punctuation / capitalization):\n\n"
+                                    f"{normalized_captured_print_statements}\n\n"),
                     test_case=test_case,
                     display_inputs=True,
                 )
