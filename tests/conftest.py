@@ -13,7 +13,7 @@ from io import StringIO
 # ================
 
 # Enter the name of the file to be tested here, but leave out the .py file extention.
-default_module_to_test = "a4_friend_tracker"
+default_module_to_test = "a5_soccer_teams"
 
 # default per-test-case timeout amount in seconds:
 default_timeout_seconds = 5
@@ -35,7 +35,6 @@ def test_cases():
         test_cases = json.load(f)
     
     return test_cases
-
 
 # =====
 # HOOKS
@@ -69,7 +68,6 @@ def pytest_sessionfinish():
     again, place logic here.
     """
     pass
-
 
 
 # ================

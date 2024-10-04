@@ -1,5 +1,5 @@
-max_score = 25  # This value is pulled by yml_generator.py to assign a score to this test.
-from conftest import normalize_text, load_student_code, format_error_message, exception_message_for_students, timeout_message_for_students
+max_score = 10  # This value is pulled by yml_generator.py to assign a score to this test.
+from conftest import normalize_text, load_student_code, format_error_message, exception_message_for_students
 import re
 
 # Checks if the expected printed messages actually appear, but doesn't check for specific inputs or correct calculations.
@@ -15,7 +15,7 @@ def test_2_printed_messages(test_cases):
                 # Grab the necessary data from the test case dictionary
                 inputs = test_case["inputs"]
                 expected_printed_messages = test_case["printed_messages"]
-                invalid_printed_messages = test_case["invalid_printed_messages"]
+                #invalid_printed_messages = test_case["invalid_printed_messages"]
 
                 # Load in the student's code and capture output
                 _, captured_output, _ = load_student_code(inputs, test_case)
@@ -32,8 +32,12 @@ def test_2_printed_messages(test_cases):
                     # Ensure the expected phrase is normalized as well
                     expected_phrase = normalize_text(expected_phrase)
 
+                    # Skip over phrases that should only sometimes print
+                    if expected_phrase in ["a tie score generating scores again","qualified for the ncaa soccer tournament", "you had a good season", "your team needs to practice"]:
+                        continue
+
                     # Convert the expected phrase into a regex pattern (replace "wildcard" with a regex wildcard for any text)
-                    regex_pattern = expected_phrase.replace("wildcard", r".+?")
+                    regex_pattern = re.sub(r'\d+', r'\\d+', expected_phrase)
 
                     # Check if the pattern exists in the normalized captured print statements
                     match = re.search(regex_pattern, normalized_captured_print_statements)
@@ -50,27 +54,27 @@ def test_2_printed_messages(test_cases):
                         display_invalid_printed_messages=True
                     )
 
-                # Ensure none of the invalid phrases are found in the normalized captured output
-                for invalid_phrase in invalid_printed_messages:
-                    # Ensure the invalid phrase is normalized as well
-                    invalid_phrase = normalize_text(invalid_phrase)
+                # # Ensure none of the invalid phrases are found in the normalized captured output
+                # for invalid_phrase in invalid_printed_messages:
+                #     # Ensure the invalid phrase is normalized as well
+                #     invalid_phrase = normalize_text(invalid_phrase)
 
-                    # Convert the invalid phrase into a regex pattern
-                    regex_pattern = invalid_phrase.replace("wildcard", r".+?")
+                #     # Convert the invalid phrase into a regex pattern
+                #     regex_pattern = invalid_phrase.replace("wildcard", r".+?")
 
-                    # Check if the pattern exists in the normalized captured print statements
-                    match = re.search(regex_pattern, normalized_captured_print_statements)
+                #     # Check if the pattern exists in the normalized captured print statements
+                #     match = re.search(regex_pattern, normalized_captured_print_statements)
 
-                    assert not match, format_error_message(
-                        custom_message=("You used an invalid printed message (ignoring punctuation / capitalization):\n\n"
-                                        f"\"{invalid_phrase}\"\n\n"
-                                        f"Below are all the printed messages from your code (ignoring punctuation / capitalization):\n\n"
-                                        f"{normalized_captured_print_statements}\n\n"),
-                        test_case=test_case,
-                        display_inputs=True,
-                        display_printed_messages=True,
-                        display_invalid_printed_messages=True
-                    )
+                #     assert not match, format_error_message(
+                #         custom_message=("You used an invalid printed message (ignoring punctuation / capitalization):\n\n"
+                #                         f"\"{invalid_phrase}\"\n\n"
+                #                         f"Below are all the printed messages from your code (ignoring punctuation / capitalization):\n\n"
+                #                         f"{normalized_captured_print_statements}\n\n"),
+                #         test_case=test_case,
+                #         display_inputs=True,
+                #         display_printed_messages=True,
+                #         display_invalid_printed_messages=True
+                #     )
             # assert raises an AssertionError, but I don't want to actually catch it
             # this is just so I can have another Exception catch below it in case
             # anything else goes wrong.

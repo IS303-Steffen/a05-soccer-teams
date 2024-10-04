@@ -1,330 +1,72 @@
 [
     {
         "id_test_case": 1,
-        "test_case_description": "Single name/hobby, no lookup",
+        "test_case_description": "5 Game Season",
         "inputs": [
-            "1",
-            "Jimmer",
-            "Basketball",
-            "3"
+            "BYU",
+            "5",
+            "University of Utah",
+            "UVU",
+            "Utah State",
+            "UNLV",
+            "TCU"
         ],
         "input_prompts": [
-            "Enter an option (1, 2, or 3): ",
-            "Enter friend's name: ",
-            "Enter Jimmer's hobby: "
+            "Enter the name of your home team: ",
+            "Enter the number of games that BYU will play: ",
+            "\nEnter the name of the away team for game 1: ",
+            "\nEnter the name of the away team for game 2: ",
+            "\nEnter the name of the away team for game 3: ",
+            "\nEnter the name of the away team for game 4: ",
+            "\nEnter the name of the away team for game 5: "
         ],
         "printed_messages": [
-            "\nMenu:",
-            "1. Add a Friend",
-            "2. Find a Friend's Hobby",
-            "3. Quit",
-            "\nJimmer added to your dictionary!",
-            "\nExiting the program. Goodbye!"
-        ],
-        "invalid_input_prompts": [
-            "Enter a friend's name to find their hobby: ",
-            "Enter Reena's hobby: ",
-            "Enter Link's hobby: "
-        ],
-        "invalid_printed_messages": [
-            "\nJimmer's hobby is Basketball.",
-            "\nJimmer is not in the dictionary.",
-            "\nReena added to your dictionary!",
-            "\nJimmer is already in your dictionary.",
-            "\nReena's hobby is Listening to Sonic Youth.",
-            "\nInvalid choice. Please choose a valid option.",
-            "\nLink added to your dictionary!"
-        ],
-        "bools": {
-            "continue_prompting": false
-        },
-        "ints": {},
-        "strings": {
-            "choice": "3",
-            "name": "Jimmer",
-            "hobby": "Basketball"
-        },
-        "floats": {},
-        "lists": {},
-        "dicts": {
-            "friends_hobbies": {
-                "Jimmer": "Basketball"
-            }
-        },
-        "example_output": "\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 1\nEnter friend's name: Jimmer\nEnter Jimmer's hobby: Basketball\n\nJimmer added to your dictionary!\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 3\n\nExiting the program. Goodbye!"
-    },
-    {
-        "id_test_case": 2,
-        "test_case_description": "Single name/hobby with lookup",
-        "inputs": [
-            "1",
-            "Jimmer",
-            "Basketball",
-            "2",
-            "Jimmer",
-            "3"
-        ],
-        "input_prompts": [
-            "Enter an option (1, 2, or 3): ",
-            "Enter friend's name: ",
-            "Enter Jimmer's hobby: ",
-            "Enter a friend's name to find their hobby: "
-        ],
-        "printed_messages": [
-            "\nMenu:",
-            "1. Add a Friend",
-            "2. Find a Friend's Hobby",
-            "3. Quit",
-            "\nJimmer added to your dictionary!",
-            "\nJimmer's hobby is Basketball.",
-            "\nExiting the program. Goodbye!"
-        ],
-        "invalid_input_prompts": [
-            "Enter Reena's hobby: ",
-            "Enter Link's hobby: "
-        ],
-        "invalid_printed_messages": [
-            "\nJimmer is already in your dictionary.",
-            "\nJimmer is not in the dictionary.",
-            "\nReena added to your dictionary!",
-            "\nReena's hobby is Listening to Sonic Youth.",
-            "\nInvalid choice. Please choose a valid option.",
-            "\nLink added to your dictionary!"
-        ],
-        "bools": {
-            "continue_prompting": false
-        },
-        "ints": {},
-        "strings": {
-            "choice": "3",
-            "name": "Jimmer",
-            "hobby": "Basketball"
-        },
-        "floats": {},
-        "lists": {},
-        "dicts": {
-            "friends_hobbies": {
-                "Jimmer": "Basketball"
-            }
-        },
-        "example_output": "\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 1\nEnter friend's name: Jimmer\nEnter Jimmer's hobby: Basketball\n\nJimmer added to your dictionary!\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 2\nEnter a friend's name to find their hobby: Jimmer\n\nJimmer's hobby is Basketball.\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 3\n\nExiting the program. Goodbye!"
-    },
-    {
-        "id_test_case": 3,
-        "test_case_description": "Invalid input",
-        "inputs": [
-            "INVALID INPUT!",
-            "4",
-            "3"
-        ],
-        "input_prompts": [
-            "Enter an option (1, 2, or 3): "
-        ],
-        "printed_messages": [
-            "\nMenu:",
-            "1. Add a Friend",
-            "2. Find a Friend's Hobby",
-            "3. Quit",
-            "\nInvalid choice. Please choose a valid option.",
-            "\nExiting the program. Goodbye!"
-        ],
-        "invalid_input_prompts": [
-            "Enter a friend's name to find their hobby: ",
-            "Enter Jimmer's hobby: ",
-            "Enter friend's name: ",
-            "Enter Reena's hobby: ",
-            "Enter Link's hobby: "
-        ],
-        "invalid_printed_messages": [
-            "\nJimmer's hobby is Basketball.",
-            "\nJimmer is not in the dictionary.",
-            "\nReena added to your dictionary!",
-            "\nJimmer is already in your dictionary.",
-            "\nReena's hobby is Listening to Sonic Youth.",
-            "\nJimmer added to your dictionary!",
-            "\nLink added to your dictionary!"
-        ],
-        "bools": {
-            "continue_prompting": false
-        },
-        "ints": {},
-        "strings": {
-            "choice": "3"
-        },
-        "floats": {},
-        "lists": {},
-        "dicts": {
-            "friends_hobbies": {}
-        },
-        "example_output": "\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): INVALID INPUT!\n\nInvalid choice. Please choose a valid option.\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 4\n\nInvalid choice. Please choose a valid option.\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 3\n\nExiting the program. Goodbye!"
-    },
-    {
-        "id_test_case": 4,
-        "test_case_description": "Single name/hobby, repeat name",
-        "inputs": [
-            "1",
-            "Jimmer",
-            "Basketball",
-            "1",
-            "Jimmer",
-            "3"
-        ],
-        "input_prompts": [
-            "Enter an option (1, 2, or 3): ",
-            "Enter friend's name: ",
-            "Enter Jimmer's hobby: "
-        ],
-        "printed_messages": [
-            "\nMenu:",
-            "1. Add a Friend",
-            "2. Find a Friend's Hobby",
-            "3. Quit",
-            "\nJimmer added to your dictionary!",
-            "\nJimmer is already in your dictionary.",
-            "\nExiting the program. Goodbye!"
-        ],
-        "invalid_input_prompts": [
-            "Enter a friend's name to find their hobby: ",
-            "Enter Reena's hobby: ",
-            "Enter Link's hobby: "
-        ],
-        "invalid_printed_messages": [
-            "\nJimmer's hobby is Basketball.",
-            "\nJimmer is not in the dictionary.",
-            "\nReena added to your dictionary!",
-            "\nReena's hobby is Listening to Sonic Youth.",
-            "\nInvalid choice. Please choose a valid option.",
-            "\nLink added to your dictionary!"
-        ],
-        "bools": {
-            "continue_prompting": false
-        },
-        "ints": {},
-        "strings": {
-            "choice": "3",
-            "name": "Jimmer",
-            "hobby": "Basketball"
-        },
-        "floats": {},
-        "lists": {},
-        "dicts": {
-            "friends_hobbies": {
-                "Jimmer": "Basketball"
-            }
-        },
-        "example_output": "\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 1\nEnter friend's name: Jimmer\nEnter Jimmer's hobby: Basketball\n\nJimmer added to your dictionary!\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 1\nEnter friend's name: Jimmer\n\nJimmer is already in your dictionary.\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 3\n\nExiting the program. Goodbye!"
-    },
-    {
-        "id_test_case": 5,
-        "test_case_description": "Lookup before entering name/hobby",
-        "inputs": [
-            "2",
-            "Jimmer",
-            "3"
-        ],
-        "input_prompts": [
-            "Enter an option (1, 2, or 3): ",
-            "Enter a friend's name to find their hobby: "
-        ],
-        "printed_messages": [
-            "\nMenu:",
-            "1. Add a Friend",
-            "2. Find a Friend's Hobby",
-            "3. Quit",
-            "\nJimmer is not in the dictionary.",
-            "\nExiting the program. Goodbye!"
-        ],
-        "invalid_input_prompts": [
-            "Enter Jimmer's hobby: ",
-            "Enter friend's name: ",
-            "Enter Reena's hobby: ",
-            "Enter Link's hobby: "
-        ],
-        "invalid_printed_messages": [
-            "\nJimmer's hobby is Basketball.",
-            "\nJimmer is already in your dictionary.",
-            "\nReena added to your dictionary!",
-            "\nReena's hobby is Listening to Sonic Youth.",
-            "\nJimmer added to your dictionary!",
-            "\nInvalid choice. Please choose a valid option.",
-            "\nLink added to your dictionary!"
-        ],
-        "bools": {
-            "continue_prompting": false
-        },
-        "ints": {},
-        "strings": {
-            "choice": "3",
-            "name": "Jimmer"
-        },
-        "floats": {},
-        "lists": {},
-        "dicts": {
-            "friends_hobbies": {}
-        },
-        "example_output": "\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 2\nEnter a friend's name to find their hobby: Jimmer\n\nJimmer is not in the dictionary.\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 3\n\nExiting the program. Goodbye!"
-    },
-    {
-        "id_test_case": 6,
-        "test_case_description": "Multiple friends/hobbies",
-        "inputs": [
-            "1",
-            "Jimmer",
-            "Basketball",
-            "1",
-            "Reena",
-            "Listening to Sonic Youth",
-            "1",
-            "Link",
-            "Breaking pots",
-            "2",
-            "Reena",
-            "3"
-        ],
-        "input_prompts": [
-            "Enter an option (1, 2, or 3): ",
-            "Enter friend's name: ",
-            "Enter Jimmer's hobby: ",
-            "Enter Reena's hobby: ",
-            "Enter Link's hobby: ",
-            "Enter a friend's name to find their hobby: "
-        ],
-        "printed_messages": [
-            "\nMenu:",
-            "1. Add a Friend",
-            "2. Find a Friend's Hobby",
-            "3. Quit",
-            "\nJimmer added to your dictionary!",
-            "\nReena added to your dictionary!",
-            "\nLink added to your dictionary!",
-            "\nReena's hobby is Listening to Sonic Youth.",
-            "\nExiting the program. Goodbye!"
+            "BYU's score: 1 - University of Utah's score: 2",
+            "BYU's score: 3 - UVU's score: 1",
+            "BYU's score: 3 - Utah State's score: 1",
+            "BYU's score: 2 - UNLV's score: 1",
+            "BYU's score: 2 - TCU's score: 0",
+            "\nTeams won against:",
+            "\tUVU",
+            "\tUtah State",
+            "\tUNLV",
+            "\tTCU",
+            "\nTeams lost against:",
+            "\tUniversity of Utah",
+            "\nFinal season record: 4 - 1",
+            "Qualified for the NCAA Soccer Tournament!"
         ],
         "invalid_input_prompts": [],
-        "invalid_printed_messages": [
-            "\nJimmer's hobby is Basketball.",
-            "\nJimmer is not in the dictionary.",
-            "\nInvalid choice. Please choose a valid option.",
-            "\nJimmer is already in your dictionary."
-        ],
-        "bools": {
-            "continue_prompting": false
+        "invalid_printed_messages": [],
+        "bools": {},
+        "ints": {
+            "num_games_played": 5,
+            "game": 5,
+            "home_score": 2,
+            "away_score": 0,
+            "num_wins": 4,
+            "num_losses": 1
         },
-        "ints": {},
         "strings": {
-            "choice": "3",
-            "name": "Reena",
-            "hobby": "Breaking pots"
+            "home_team_name": "BYU",
+            "away_team_name": "TCU",
+            "team": "University of Utah"
         },
         "floats": {},
         "lists": {},
         "dicts": {
-            "friends_hobbies": {
-                "Jimmer": "Basketball",
-                "Reena": "Listening to Sonic Youth",
-                "Link": "Breaking pots"
+            "teams_played_against": {
+                "Won Against": [
+                    "UVU",
+                    "Utah State",
+                    "UNLV",
+                    "TCU"
+                ],
+                "Lost Against": [
+                    "University of Utah"
+                ]
             }
         },
-        "example_output": "\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 1\nEnter friend's name: Jimmer\nEnter Jimmer's hobby: Basketball\n\nJimmer added to your dictionary!\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 1\nEnter friend's name: Reena\nEnter Reena's hobby: Listening to Sonic Youth\n\nReena added to your dictionary!\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 1\nEnter friend's name: Link\nEnter Link's hobby: Breaking pots\n\nLink added to your dictionary!\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 2\nEnter a friend's name to find their hobby: Reena\n\nReena's hobby is Listening to Sonic Youth.\n\nMenu:\n1. Add a Friend\n2. Find a Friend's Hobby\n3. Quit\nEnter an option (1, 2, or 3): 3\n\nExiting the program. Goodbye!"
+        "example_output": "Enter the name of your home team: BYU\nEnter the number of games that BYU will play: 5\n\nEnter the name of the away team for game 1: University of Utah\nBYU's score: 1 - University of Utah's score: 2\n\nEnter the name of the away team for game 2: UVU\nBYU's score: 3 - UVU's score: 1\n\nEnter the name of the away team for game 3: Utah State\nA tie score! Generating scores again.\nBYU's score: 3 - Utah State's score: 1\n\nEnter the name of the away team for game 4: UNLV\nBYU's score: 2 - UNLV's score: 1\n\nEnter the name of the away team for game 5: TCU\nA tie score! Generating scores again.\nBYU's score: 2 - TCU's score: 0\n\nTeams won against:\n\tUVU\n\tUtah State\n\tUNLV\n\tTCU\n\nTeams lost against:\n\tUniversity of Utah\n\nFinal season record: 4 - 1\nQualified for the NCAA Soccer Tournament!"
     }
 ]

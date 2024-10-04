@@ -18,135 +18,85 @@ Put your code in the `a5_soccer_teams.py` file. Do not edit or delete any other 
 ### For each game you home team will play:
 - Ask the name of the away team (e.g. “Utah State”) and include which number 
 game this will be for.
-    - `Enter the name of the away team for game <game number>: `
-    - e.g. for the first game your team plays it should say:
-        `Enter the name of the away team for game 1: `
-- After entering in the away team name, randomly generate scores between 0 and 5 
-(inclusive) for the home team and the away team.
+  - `Enter the name of the away team for game <game number>: `
+  - e.g. for the first game your team plays it should say:
+    - `Enter the name of the away team for game 1: `
+- After entering in the away team name, randomly generate scores between 0 and 3 (inclusive) for the home team and the away team.
     - Look up the `random` library in python if you don't know how to do this.
-    - As a rule, you cannot have tie scores. In the case that there is a tie between the home and the away teams, keep generating new scores for the home and away teams until there isn’t a tie. 
-- Keep track of the number of wins / losses of your home team however you want. (If the home team score is higher than the away team, that is a win, if it is lower, then that is a loss). You just need to be able to calculate
-- You also need to keep track of the names of teams that your team won against and lost against in a dictionary. You dictionary will have two keys: `"Won Against"` and `"Lost Against"`. Both keys will have lists for the values.
+    - However, you CANNOT have tie scores.
+      - You must either keep generating new scores until there isn't a tie, or figure out a way to never generate the same score for both teams in the first place. 
+- Keep track of the number of wins / losses of your home team however you want.
+  - If the home team score is higher than the away team, that is a win, if it is lower, then that is a loss.
+  - You just need to be able to print the total wins and losses in the end of your code, as well as use that information to display a specific message.
+- You also need to keep track of the names of teams that your team won against and lost against in a dictionary. You dictionary will have two keys: `"Won Against"` and `"Lost Against"`. Both keys will have lists as their values.
     - If the home team won, store the name of the away team in the list associated with the `"Won Against"` key.
     - If the home team lost, store the name of the away team in the list associated with the `"Lost Against"` key.
-    - The exact way you code this is up to you, but the automated tests will be specifically looking for a dictionary with 2 keys called `"Won Against"` and `"Lost Against"` with lists as their values, so you must store them this way to get credit.
+    - The exact way you code this is up to you, but the automated tests will be specifically looking for a dictionary with 2 keys called `"Won Against"` and `"Lost Against"` with lists as their values, so you must store them this way to get credit. The keys must be spelled correctly and capitalized for the test to find them.
 - Print out the name of the home team’s name and their score, as well as the away team’s name and their score like this:
     - `<home team name>'s score: <home team score> - <away team name>'s score: <away team score>`
     - For example, if your home team is BYU and the away team is UVU, it might look like this:
-    - `BYU's score: 4 - UVU's score: 2`
+    - `BYU's score: 3 - UVU's score: 2`
 - Do this however many times the user inputted for the number of games the home team would play in the season. (E.g. if they inputted 3 for the number of games, go through the above logic 3 times).
 
 ### After playing all the games
 - Print out: `Teams won against:` 
     - Then print out the name of each team your home team won against. You can put a tab before each name to make it look nicer if you'd like:
-        - 
-        ```
+      - ```
         Teams won against:
-            UVU
-            U of U
+          UVU
+          U of U
         ```
 - Print out: `Teams lost against:` 
-    - Then print out the name of each team your home team won against. You can put a tab before each name to make it look nicer if you'd like:
-        - 
-        ```
-        Teams lost against:
-            Utah State
-        ```
+  - Then print out the name of each team your home team won against. You can put a tab before each name to make it look nicer if you'd like:
+    - ```
+      Teams lost against:
+        Utah State
+      ```
 - Print out `Final season record` followed by your home team name and their record, which is the number of wins, with a dash, then the number of losses. Like this: 
-    - `Final season record: <number of wins> - <number of losses>`
+  - `Final season record: <number of wins> - <number of losses>`
 - After all of this, print out a final message based on the record of the home team. 
     - If they won at least 75% of their games, print out:
-        `Qualified for the NCAA Soccer Tournament` 
-- If the team won at least 50% but less than 75% then print out “You had a 
-good season”. 
-    - Otherwise print out “Your team needs to practice!”.
+      - `Qualified for the NCAA Soccer Tournament` 
+    - If the team won at least 50% but less than 75% then print out:
+      - `You had a good season.` 
+    - Otherwise print out:
+      - `Your team needs to practice!`
 
-## Running the automated tests
-Feel free to run the included automated tests to see what score you'll get:
-1. Go to the Testing Tab
-2. Click "Configure Python Tests"
-3. Choose "Pytest" (NOT "UNITTEST")
-    - If you accidentally choose "UNITTEST", you can reselect by going to View > Command Palette and then typing "Python: Configure Tests" and pressing enter on your keyboard
-4. Choose "tests"
-5. Click the play button near the top of the Testing tab, or press the little arrows next to the assignment name until you can see individual tests to run.
-
-If a test doesn't pass, scroll up in the "Test Results" window in the Terminal area until you see the "IS 303 STUDENTS: READ THE EERROR MESSAGESS IN RED BELOW" message. Read the error messages to see why a test did not pass.
-
+Push your code up to your GitHub repository to receive credit. If you pass all the automated tests you will receive full credit.
 
 ## Example Output
-Below is an example of
-- entering in 2 friends
-- checking the hobby of one of the friends
-- checking the hobby of a friend that doesn't exist
-- trying to enter in a friend that was already added
-- entering invalid input
-- quitting
+Note that because scores are randomly chosen, your output will vary, even with identical inputs.
 
+```Enter the name of your home team: BYU
+Enter the number of games that BYU will play: 5
+
+Enter the name of the away team for game 1: University of Utah
+BYU's score: 1 - University of Utah's score: 2
+
+Enter the name of the away team for game 2: UVU
+BYU's score: 3 - UVU's score: 1
+
+Enter the name of the away team for game 3: Utah State
+BYU's score: 3 - Utah State's score: 1
+
+Enter the name of the away team for game 4: UNLV
+BYU's score: 2 - UNLV's score: 1
+
+Enter the name of the away team for game 5: TCU
+BYU's score: 2 - TCU's score: 0
+
+Teams won against:
+  UVU
+  Utah State
+  UNLV
+  TCU
+
+Teams lost against:
+  University of Utah
+
+Final season record: 4 - 1
+Qualified for the NCAA Soccer Tournament!
 ```
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Jimmer
-Enter Jimmer's hobby: Basketball
-
-Jimmer added to your dictionary!
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Reena
-Enter Reena's hobby: Listening to Sonic Youth
-
-Reena added to your dictionary!
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 2
-Enter a friend's name to find their hobby: Reena
-
-Reena's hobby is Listening to Sonic Youth.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 2
-Enter a friend's name to find their hobby: Tim
-
-Tim is not in the dictionary.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Jimmer
-
-Jimmer is already in your dictionary.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): asdf
-
-Invalid choice. Please choose a valid option.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 3
-
-Exiting the program. Goodbye!
-```
-asdf
 
 ## Rubric
 This assignment contains the automated tests listed below. The tests will ignore spacing, capitalization, and punctuation, but you will fail the tests if you spell something wrong or calculate something incorrectly.
@@ -165,53 +115,73 @@ After this table, see the Test Cases table below to see what inputs will be run 
 <tbody>
     <tr>
         <td>1. Input Prompts</td>
-        <td>1-6</td>
-        <td>All the these tests are expecting 4 <code>input()</code> prompts to be present in your code. You must use <code>input()</code> to ask the user the following prompts, depending on the input the user provides:
+        <td>1</td>
+        <td>All the these tests are expecting 3 <code>input()</code> prompts to be present in your code. You must use <code>input()</code> to ask the user the following prompts, depending on the input the user provides:
         <ul>
-          <li><code>Enter an option (1, 2, or 3):  </code></li>
+          <li><code>Enter the name of your home team: </code></li>
         </ul>
         <ul>
-          <li><code>Enter friend's name:  </code></li>
+          <li><code>Enter the number of games that &lt;home team name&gt; will play:  </code></li>
         </ul>
         <ul>
-          <li><code>Enter &lt;Friend's name&gt;'s hobby: : </code></li>
+          <li><code>Enter the name of the away team for game &lt;game number&gt;:  </code></li>
         </ul>
-        <ul>
-          <li><code>Enter a friend's name to find their hobby: </code></li>
-        </ul> 
         </td>
-        <td>25</td>
+        <td>10</td>
     </tr>
     <tr>
         <td>2. Printed Messages</td>
-        <td>1-6</td>
-        <td>Your printed output must contain these phrases, though only some should print out depending on what the user inputs:
+        <td>1</td>
+        <td>Your printed output must contain these phrases. You will not be docked if you print out any extra statements not included here:
           <ul>
-            <li><code>Menu:</code></li>
-            <li><code>1. Add a Friend</code></li>
-            <li><code>2. Find a Friend's Hobby</code></li>
-            <li><code>3. Quit</code></li>
-            <li><code>&lt;Friend's name&gt; is already in your dictionary.</code></li>
-            <li><code>&lt;Friend's name&gt; added to your dictionary!</code></li>
-            <li><code>&lt;Friend's name&gt;'s hobby is &lt;Friend's hobby&gt;.</code></li>
-            <li><code>&lt;Friend's name&gt; is not in the dictionary.</code></li>
-            <li><code>Exiting the program. Goodbye!</code></li>
-            <li><code>Invalid choice. Please choose a valid option.</code></li>
+            <li><code>Teams won against:</code></li>
+            <li><code>Teams lost against:</code></li>
+            <li><code>Final season record: &lt;# won&gt; - &lt;# lost&gt;</code></li>
           </ul>        
+        </td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>3. No tie scores</td>
+        <td>1 (repeated 50 times)</td>
+        <td>Your code must not allow tie scores. This test will run the test case 50 times and check for any ties occuring in any of the games.
+        </td>
+        <td>25</td>
+    </tr>
+        <tr>
+        <td>4. Correct Range of Random Scores</td>
+        <td>1 (repeated 50 times)</td>
+        <td>Your code must allow scores from 0-3 (inclusive) be generated
+        </td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>5. Storing Teams Won and Lost Against</td>
+        <td>1</td>
+        <td>You need to create a dictionary with the keys "Won Against" and "Lost Against" and store the teams won and lost against in lists associated with eacy key. <br><br>One possible example is:
+        <ul>
+          <li><code>{"Won Against": ["UVU", "Utah State", "UNLV", "TCU"], "Lost Against": ["University of Utah"]}</code>
+          </li>
+        </ul>
         </td>
         <td>25</td>
     </tr>
     <tr>
-        <td>3. Creation of Dictionary</td>
-        <td>1-2, 4, 6</td>
-        <td>Your code must store friends' names and hobbies in a dictionary data type. See the test cases section for examples.
+        <td>6. Final Performance Messages</td>
+        <td>1 (repeated 50 times)</td>
+        <td>Your printed output must accurately calculate the win/loss ratio and always print out one of 3 messages based on the logic given in the instructions section above:
+          <ul>
+            <li><code>Qualified for the NCAA Soccer Tournament!</code></li>
+            <li><code>You had a good season.</code></li>
+            <li><code>Your team needs to practice!</code></li>
+          </ul>        
         </td>
-        <td>45</td>
+        <td>10</td>
     </tr>
     <tr>
-        <td>4. Sufficient Comments </td>
+        <td>7. Sufficient Comments </td>
         <td>None</td>
-        <td>Your code must include at least <code>5</code> comments. You can use any form of commenting:
+        <td>Your code must include at least <code>10</code> comments. You can use any form of commenting:
         <ul>
           <li><code>#</code></li> 
           <li><code>''' '''</code></li>
@@ -229,6 +199,7 @@ After this table, see the Test Cases table below to see what inputs will be run 
 
 <br><br>
 
+
 ## Test Cases Summary
 <table>
   <tr>
@@ -236,72 +207,20 @@ After this table, see the Test Cases table below to see what inputs will be run 
     <th>Inputs</th>
   </tr>
   <tr>
-    <td><a href="#testcase1">1: Single name/hobby, no lookup</a></td>
+    <td><a href="#testcase1">1: 5 Game Season</a></td>
     <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td><a href="#testcase2">2: Single name/hobby with lookup</a></td>
-    <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>2</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td><a href="#testcase3">3: Invalid input</a></td>
-    <td><ul>
-  <li><code>INVALID INPUT!</code></li>
-  <li><code>4</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td><a href="#testcase4">4: Single name/hobby, repeat name</a></td>
-    <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td><a href="#testcase5">5: Lookup before entering name/hobby</a></td>
-    <td><ul>
-  <li><code>2</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td><a href="#testcase6">6: Multiple friends/hobbies</a></td>
-    <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>1</code></li>
-  <li><code>Reena</code></li>
-  <li><code>Listening to Sonic Youth</code></li>
-  <li><code>1</code></li>
-  <li><code>Link</code></li>
-  <li><code>Breaking pots</code></li>
-  <li><code>2</code></li>
-  <li><code>Reena</code></li>
-  <li><code>3</code></li>
+  <li><code>BYU</code></li>
+  <li><code>5</code></li>
+  <li><code>University of Utah</code></li>
+  <li><code>UVU</code></li>
+  <li><code>Utah State</code></li>
+  <li><code>UNLV</code></li>
+  <li><code>TCU</code></li>
 </ul></td>
   </tr>
 </table>
 
-<h3 id="testcase1">Test Case 1 Details - Single name/hobby, no lookup</h3>
+<h3 id="testcase1">Test Case 1 Details - 5 Game Season</h3>
 
 <table>
   <tr>
@@ -311,563 +230,84 @@ After this table, see the Test Cases table below to see what inputs will be run 
   <tr>
     <td>Inputs</td>
     <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>3</code></li>
+  <li><code>BYU</code></li>
+  <li><code>5</code></li>
+  <li><code>University of Utah</code></li>
+  <li><code>UVU</code></li>
+  <li><code>Utah State</code></li>
+  <li><code>UNLV</code></li>
+  <li><code>TCU</code></li>
 </ul></td>
   </tr>
   <tr>
     <td>Input Prompts</td>
     <td><ul>
-  <li><code>Enter an option (1, 2, or 3):</code></li>
-  <li><code>Enter friend's name:</code></li>
-  <li><code>Enter Jimmer's hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Input Prompts</td>
-    <td><ul>
-  <li><code>Enter a friend's name to find their hobby:</code></li>
-  <li><code>Enter Reena's hobby:</code></li>
-  <li><code>Enter Link's hobby:</code></li>
+  <li><code>Enter the name of your home team:</code></li>
+  <li><code>Enter the number of games that BYU will play:</code></li>
+  <li><code>Enter the name of the away team for game 1:</code></li>
+  <li><code>Enter the name of the away team for game 2:</code></li>
+  <li><code>Enter the name of the away team for game 3:</code></li>
+  <li><code>Enter the name of the away team for game 4:</code></li>
+  <li><code>Enter the name of the away team for game 5:</code></li>
 </ul></td>
   </tr>
   <tr>
     <td>Printed Messages</td>
     <td><ul>
-  <li><code>Menu:</code></li>
-  <li><code>1. Add a Friend</code></li>
-  <li><code>2. Find a Friend's Hobby</code></li>
-  <li><code>3. Quit</code></li>
-  <li><code>Jimmer added to your dictionary!</code></li>
-  <li><code>Exiting the program. Goodbye!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Printed Messages</td>
-    <td><ul>
-  <li><code>Jimmer's hobby is Basketball.</code></li>
-  <li><code>Jimmer is not in the dictionary.</code></li>
-  <li><code>Reena added to your dictionary!</code></li>
-  <li><code>Jimmer is already in your dictionary.</code></li>
-  <li><code>Reena's hobby is Listening to Sonic Youth.</code></li>
-  <li><code>Invalid choice. Please choose a valid option.</code></li>
-  <li><code>Link added to your dictionary!</code></li>
+  <li><code>BYU's score: &lt;score&gt; - University of Utah's score: &lt;score&gt;</code></li>
+  <li><code>BYU's score: &lt;score&gt; - UVU's score: &lt;score&gt;</code></li>
+  <li><code>BYU's score: &lt;score&gt; - Utah State's score: &lt;score&gt;</code></li>
+  <li><code>BYU's score: &lt;score&gt; - UNLV's score: &lt;score&gt;</code></li>
+  <li><code>BYU's score: &lt;score&gt; - TCU's score: &lt;score&gt;</code></li>
+  <li><code>Teams won against:</code></li>
+  <li><code>UVU</code></li>
+  <li><code>Utah State</code></li>
+  <li><code>UNLV</code></li>
+  <li><code>TCU</code></li>
+  <li><code>Teams lost against:</code></li>
+  <li><code>University of Utah</code></li>
+  <li><code>Final season record: &lt;wins&gt; - &lt;losses&gt;</code></li>
+  <li><code>Qualified for the NCAA Soccer Tournament!</code></li>
 </ul></td>
   </tr>
   <tr>
     <td>Dicts</td>
     <td><ul>
-  <li><code>{"Jimmer": "Basketball"}</code></li>
+  <li><code>{"Won Against": ["UVU", "Utah State", "UNLV", "TCU"], "Lost Against": ["University of Utah"]}</code></li>
 </ul></td>
   </tr>
 </table>
 
 <h4>Example Ouput:</h4>
 
-```
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Jimmer
-Enter Jimmer's hobby: Basketball
+```Enter the name of your home team: BYU
+Enter the number of games that BYU will play: 5
 
-Jimmer added to your dictionary!
+Enter the name of the away team for game 1: University of Utah
+BYU's score: 1 - University of Utah's score: 2
 
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 3
+Enter the name of the away team for game 2: UVU
+BYU's score: 3 - UVU's score: 1
 
-Exiting the program. Goodbye!
-```
+Enter the name of the away team for game 3: Utah State
+BYU's score: 3 - Utah State's score: 1
 
-<h3 id="testcase2">Test Case 2 Details - Single name/hobby with lookup</h3>
+Enter the name of the away team for game 4: UNLV
+BYU's score: 2 - UNLV's score: 1
 
-<table>
-  <tr>
-    <th>Requirement</th>
-    <th>Components</th>
-  </tr>
-  <tr>
-    <td>Inputs</td>
-    <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>2</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Input Prompts</td>
-    <td><ul>
-  <li><code>Enter an option (1, 2, or 3):</code></li>
-  <li><code>Enter friend's name:</code></li>
-  <li><code>Enter Jimmer's hobby:</code></li>
-  <li><code>Enter a friend's name to find their hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Input Prompts</td>
-    <td><ul>
-  <li><code>Enter Reena's hobby:</code></li>
-  <li><code>Enter Link's hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Printed Messages</td>
-    <td><ul>
-  <li><code>Menu:</code></li>
-  <li><code>1. Add a Friend</code></li>
-  <li><code>2. Find a Friend's Hobby</code></li>
-  <li><code>3. Quit</code></li>
-  <li><code>Jimmer added to your dictionary!</code></li>
-  <li><code>Jimmer's hobby is Basketball.</code></li>
-  <li><code>Exiting the program. Goodbye!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Printed Messages</td>
-    <td><ul>
-  <li><code>Jimmer is already in your dictionary.</code></li>
-  <li><code>Jimmer is not in the dictionary.</code></li>
-  <li><code>Reena added to your dictionary!</code></li>
-  <li><code>Reena's hobby is Listening to Sonic Youth.</code></li>
-  <li><code>Invalid choice. Please choose a valid option.</code></li>
-  <li><code>Link added to your dictionary!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Dicts</td>
-    <td><ul>
-  <li><code>{"Jimmer": "Basketball"}</code></li>
-</ul></td>
-  </tr>
-</table>
+Enter the name of the away team for game 5: TCU
+BYU's score: 2 - TCU's score: 0
 
-<h4>Example Ouput:</h4>
+Teams won against:
+  UVU
+  Utah State
+  UNLV
+  TCU
 
-```
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Jimmer
-Enter Jimmer's hobby: Basketball
+Teams lost against:
+  University of Utah
 
-Jimmer added to your dictionary!
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 2
-Enter a friend's name to find their hobby: Jimmer
-
-Jimmer's hobby is Basketball.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 3
-
-Exiting the program. Goodbye!
+Final season record: 4 - 1
+Qualified for the NCAA Soccer Tournament!
 ```
 
-<h3 id="testcase3">Test Case 3 Details - Invalid input</h3>
-
-<table>
-  <tr>
-    <th>Requirement</th>
-    <th>Components</th>
-  </tr>
-  <tr>
-    <td>Inputs</td>
-    <td><ul>
-  <li><code>INVALID INPUT!</code></li>
-  <li><code>4</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Input Prompts</td>
-    <td><ul>
-  <li><code>Enter an option (1, 2, or 3):</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Input Prompts</td>
-    <td><ul>
-  <li><code>Enter a friend's name to find their hobby:</code></li>
-  <li><code>Enter Jimmer's hobby:</code></li>
-  <li><code>Enter friend's name:</code></li>
-  <li><code>Enter Reena's hobby:</code></li>
-  <li><code>Enter Link's hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Printed Messages</td>
-    <td><ul>
-  <li><code>Menu:</code></li>
-  <li><code>1. Add a Friend</code></li>
-  <li><code>2. Find a Friend's Hobby</code></li>
-  <li><code>3. Quit</code></li>
-  <li><code>Invalid choice. Please choose a valid option.</code></li>
-  <li><code>Exiting the program. Goodbye!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Printed Messages</td>
-    <td><ul>
-  <li><code>Jimmer's hobby is Basketball.</code></li>
-  <li><code>Jimmer is not in the dictionary.</code></li>
-  <li><code>Reena added to your dictionary!</code></li>
-  <li><code>Jimmer is already in your dictionary.</code></li>
-  <li><code>Reena's hobby is Listening to Sonic Youth.</code></li>
-  <li><code>Jimmer added to your dictionary!</code></li>
-  <li><code>Link added to your dictionary!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Dicts</td>
-    <td><ul>
-  <li><code>{}</code></li>
-</ul></td>
-  </tr>
-</table>
-
-<h4>Example Ouput:</h4>
-
-```
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): INVALID INPUT!
-
-Invalid choice. Please choose a valid option.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 4
-
-Invalid choice. Please choose a valid option.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 3
-
-Exiting the program. Goodbye!
-```
-
-<h3 id="testcase4">Test Case 4 Details - Single name/hobby, repeat name</h3>
-
-<table>
-  <tr>
-    <th>Requirement</th>
-    <th>Components</th>
-  </tr>
-  <tr>
-    <td>Inputs</td>
-    <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Input Prompts</td>
-    <td><ul>
-  <li><code>Enter an option (1, 2, or 3):</code></li>
-  <li><code>Enter friend's name:</code></li>
-  <li><code>Enter Jimmer's hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Input Prompts</td>
-    <td><ul>
-  <li><code>Enter a friend's name to find their hobby:</code></li>
-  <li><code>Enter Reena's hobby:</code></li>
-  <li><code>Enter Link's hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Printed Messages</td>
-    <td><ul>
-  <li><code>Menu:</code></li>
-  <li><code>1. Add a Friend</code></li>
-  <li><code>2. Find a Friend's Hobby</code></li>
-  <li><code>3. Quit</code></li>
-  <li><code>Jimmer added to your dictionary!</code></li>
-  <li><code>Jimmer is already in your dictionary.</code></li>
-  <li><code>Exiting the program. Goodbye!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Printed Messages</td>
-    <td><ul>
-  <li><code>Jimmer's hobby is Basketball.</code></li>
-  <li><code>Jimmer is not in the dictionary.</code></li>
-  <li><code>Reena added to your dictionary!</code></li>
-  <li><code>Reena's hobby is Listening to Sonic Youth.</code></li>
-  <li><code>Invalid choice. Please choose a valid option.</code></li>
-  <li><code>Link added to your dictionary!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Dicts</td>
-    <td><ul>
-  <li><code>{"Jimmer": "Basketball"}</code></li>
-</ul></td>
-  </tr>
-</table>
-
-<h4>Example Ouput:</h4>
-
-```
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Jimmer
-Enter Jimmer's hobby: Basketball
-
-Jimmer added to your dictionary!
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Jimmer
-
-Jimmer is already in your dictionary.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 3
-
-Exiting the program. Goodbye!
-```
-
-<h3 id="testcase5">Test Case 5 Details - Lookup before entering name/hobby</h3>
-
-<table>
-  <tr>
-    <th>Requirement</th>
-    <th>Components</th>
-  </tr>
-  <tr>
-    <td>Inputs</td>
-    <td><ul>
-  <li><code>2</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Input Prompts</td>
-    <td><ul>
-  <li><code>Enter an option (1, 2, or 3):</code></li>
-  <li><code>Enter a friend's name to find their hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Input Prompts</td>
-    <td><ul>
-  <li><code>Enter Jimmer's hobby:</code></li>
-  <li><code>Enter friend's name:</code></li>
-  <li><code>Enter Reena's hobby:</code></li>
-  <li><code>Enter Link's hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Printed Messages</td>
-    <td><ul>
-  <li><code>Menu:</code></li>
-  <li><code>1. Add a Friend</code></li>
-  <li><code>2. Find a Friend's Hobby</code></li>
-  <li><code>3. Quit</code></li>
-  <li><code>Jimmer is not in the dictionary.</code></li>
-  <li><code>Exiting the program. Goodbye!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Printed Messages</td>
-    <td><ul>
-  <li><code>Jimmer's hobby is Basketball.</code></li>
-  <li><code>Jimmer is already in your dictionary.</code></li>
-  <li><code>Reena added to your dictionary!</code></li>
-  <li><code>Reena's hobby is Listening to Sonic Youth.</code></li>
-  <li><code>Jimmer added to your dictionary!</code></li>
-  <li><code>Invalid choice. Please choose a valid option.</code></li>
-  <li><code>Link added to your dictionary!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Dicts</td>
-    <td><ul>
-  <li><code>{}</code></li>
-</ul></td>
-  </tr>
-</table>
-
-<h4>Example Ouput:</h4>
-
-```
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 2
-Enter a friend's name to find their hobby: Jimmer
-
-Jimmer is not in the dictionary.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 3
-
-Exiting the program. Goodbye!
-```
-
-<h3 id="testcase6">Test Case 6 Details - Multiple friends/hobbies</h3>
-
-<table>
-  <tr>
-    <th>Requirement</th>
-    <th>Components</th>
-  </tr>
-  <tr>
-    <td>Inputs</td>
-    <td><ul>
-  <li><code>1</code></li>
-  <li><code>Jimmer</code></li>
-  <li><code>Basketball</code></li>
-  <li><code>1</code></li>
-  <li><code>Reena</code></li>
-  <li><code>Listening to Sonic Youth</code></li>
-  <li><code>1</code></li>
-  <li><code>Link</code></li>
-  <li><code>Breaking pots</code></li>
-  <li><code>2</code></li>
-  <li><code>Reena</code></li>
-  <li><code>3</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Input Prompts</td>
-    <td><ul>
-  <li><code>Enter an option (1, 2, or 3):</code></li>
-  <li><code>Enter friend's name:</code></li>
-  <li><code>Enter Jimmer's hobby:</code></li>
-  <li><code>Enter Reena's hobby:</code></li>
-  <li><code>Enter Link's hobby:</code></li>
-  <li><code>Enter a friend's name to find their hobby:</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Input Prompts</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Printed Messages</td>
-    <td><ul>
-  <li><code>Menu:</code></li>
-  <li><code>1. Add a Friend</code></li>
-  <li><code>2. Find a Friend's Hobby</code></li>
-  <li><code>3. Quit</code></li>
-  <li><code>Jimmer added to your dictionary!</code></li>
-  <li><code>Reena added to your dictionary!</code></li>
-  <li><code>Link added to your dictionary!</code></li>
-  <li><code>Reena's hobby is Listening to Sonic Youth.</code></li>
-  <li><code>Exiting the program. Goodbye!</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Invalid Printed Messages</td>
-    <td><ul>
-  <li><code>Jimmer's hobby is Basketball.</code></li>
-  <li><code>Jimmer is not in the dictionary.</code></li>
-  <li><code>Invalid choice. Please choose a valid option.</code></li>
-  <li><code>Jimmer is already in your dictionary.</code></li>
-</ul></td>
-  </tr>
-  <tr>
-    <td>Dicts</td>
-    <td><ul>
-  <li><code>{"Jimmer": "Basketball", "Reena": "Listening to Sonic Youth", "Link": "Breaking pots"}</code></li>
-</ul></td>
-  </tr>
-</table>
-
-<h4>Example Ouput:</h4>
-
-```
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Jimmer
-Enter Jimmer's hobby: Basketball
-
-Jimmer added to your dictionary!
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Reena
-Enter Reena's hobby: Listening to Sonic Youth
-
-Reena added to your dictionary!
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 1
-Enter friend's name: Link
-Enter Link's hobby: Breaking pots
-
-Link added to your dictionary!
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 2
-Enter a friend's name to find their hobby: Reena
-
-Reena's hobby is Listening to Sonic Youth.
-
-Menu:
-1. Add a Friend
-2. Find a Friend's Hobby
-3. Quit
-Enter an option (1, 2, or 3): 3
-
-Exiting the program. Goodbye!
-```

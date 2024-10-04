@@ -2,9 +2,9 @@ max_score = 5 # This value is pulled by yml_generator.py to assign a score to th
 import re
 from conftest import default_module_to_test, format_error_message, exception_message_for_students
 
-def test_4_sufficient_comments():
+def test_7_sufficient_comments():
     try:
-        required_num_comments = 5
+        required_num_comments = 10
         # Open and read the student's script as a string
         with open(f"{default_module_to_test}.py", "r") as file:
             script_content = file.read()
