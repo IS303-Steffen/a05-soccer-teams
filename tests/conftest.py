@@ -13,7 +13,7 @@ from io import StringIO
 # ================
 
 # Enter the name of the file to be tested here, but leave out the .py file extention.
-default_module_to_test = "a5_soccer_teams"
+default_module_to_test = "a5_solution_soccer_teams"
 
 # default per-test-case timeout amount in seconds:
 default_timeout_seconds = 5
@@ -188,7 +188,7 @@ def _load_student_code_subprocess(queue, inputs, test_case, module_to_test):
         
         # Read the student's code from the file
         module_file_path = module_to_test + '.py'
-        with open(module_file_path, 'r') as f:
+        with open(module_file_path, 'r', encoding='utf-8', errors='replace') as f:
             code = f.read()
 
         # Execute the student's code within the controlled namespace
