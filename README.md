@@ -52,7 +52,7 @@ game this will be for.
       Teams lost against:
         Utah State
       ```
-- Print out `Final season record` followed by your home team name and their record, which is the number of wins, with a dash, then the number of losses. Like this: 
+- Print out `Final season record` followed by their record, which is the number of wins, with a dash, then the number of losses. Like this: 
   - `Final season record: <number of wins> - <number of losses>`
 - After all of this, print out a final message based on the record of the home team. 
     - If they won at least 75% of their games, print out:
