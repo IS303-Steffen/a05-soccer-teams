@@ -13,7 +13,19 @@ from io import StringIO
 # ================
 
 # Enter the name of the file to be tested here, but leave out the .py file extention.
-default_module_to_test = "a5_solution_soccer_teams"
+
+solution_module = "a5_solution_soccer_teams"
+student_module = "a5_soccer_teams"
+
+def detect_module(solution_module, student_module):
+    if os.path.exists(f"{solution_module}.py"):
+        return solution_module
+    elif os.path.exists(f"{student_module}.py"):
+        return student_module
+    else:
+        return "PATH NOT FOUND"
+
+default_module_to_test = detect_module(solution_module, student_module)
 
 # default per-test-case timeout amount in seconds:
 default_timeout_seconds = 5

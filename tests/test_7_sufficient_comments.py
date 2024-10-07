@@ -26,6 +26,8 @@ def test_7_sufficient_comments():
         assert num_comments >= required_num_comments,format_error_message(
         f"Not enough comments found. You need at least {required_num_comments}. "
         f"Only {num_comments} comment(s) detected.")
+    except AssertionError:
+        raise
     except Exception as e:
         test_case = {"id_test_case": None}
         exception_message_for_students(e, test_case)
