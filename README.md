@@ -158,7 +158,7 @@ After this table, see the Test Cases table below to see what inputs will be run 
     <tr>
         <td>5. Storing Teams Won and Lost Against</td>
         <td>1</td>
-        <td>You need to create a dictionary with the keys "Won Against" and "Lost Against" and store the teams won and lost against in lists associated with eacy key. <br><br>One possible example is:
+        <td>You need to create a dictionary with the keys "Won Against" and "Lost Against" and store the teams won and lost against in lists associated with each key. <br><br>One possible example is:
         <ul>
           <li><code>{"Won Against": ["UVU", "Utah State", "UNLV", "TCU"], "Lost Against": ["University of Utah"]}</code>
           </li>
