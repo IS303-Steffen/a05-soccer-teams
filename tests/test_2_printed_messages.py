@@ -42,6 +42,11 @@ def test_2_printed_messages(test_cases):
                     # Check if the pattern exists in the normalized captured print statements
                     match = re.search(regex_pattern, normalized_captured_print_statements)
 
+                    # if there isn't a match, prepare the strings for the failure message to make it less confusing.
+                    if not match:
+                        normalized_captured_print_statements = re.sub(r'\d+', '<number>', normalized_captured_print_statements)
+                        expected_phrase = re.sub(r'\d+', '<number>', expected_phrase)
+
                     assert match, format_error_message(
                         custom_message=("The expected printed message (ignoring punctuation / capitalization):\n\n"
                                         f"\"{expected_phrase}\"\n\n"

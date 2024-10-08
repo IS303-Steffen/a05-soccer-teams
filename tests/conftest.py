@@ -274,6 +274,10 @@ def normalize_text(text):
         # Remove hyphens not followed by digits (negative signs at the beginning of numbers)
         text = re.sub(r'-(?!\d)', '', text)
         
+        # If there is any character followed by a colon : other than a space, add a space
+        # (before taking out the colon in the next step)
+        text = re.sub(r'(:)(\S)', r'\1 \2', text)
+
         # Remove all other punctuation and symbols
         text = re.sub(r'[!"#$%&\'()*+,/:;<=>?@\[\]^_`{|}~]', '', text)
         
