@@ -250,7 +250,6 @@ def _load_student_code_subprocess(queue, inputs, test_case, module_to_test):
         queue.put(('exception', exception_data))
 
 
-
 def normalize_text(text):
     """
     Used by tests that look for specific output or input prompts.
@@ -271,18 +270,23 @@ def normalize_text(text):
         # Remove periods not between digits
         text = re.sub(r'(?<!\d)\.(?!\d)', '', text)
         
-        # Remove hyphens not followed by digits (negative signs at the beginning of numbers)
-        text = re.sub(r'-(?!\d)', '', text)
-        
         # If there is any character followed by a colon : other than a space, add a space
-        # (before taking out the colon in the next step)
         text = re.sub(r'(:)(\S)', r'\1 \2', text)
-
+    
         # Remove all other punctuation and symbols
         text = re.sub(r'[!"#$%&\'()*+,/:;<=>?@\[\]^_`{|}~]', '', text)
         
+        # Temporarily replace negative signs with a placeholder
+        text = re.sub(r'((?<=^)|(?<=\s))-(?=\d)', 'NEG_SIGN_PLACEHOLDER', text)
+        
+        # Replace remaining hyphens (e.g., between numbers) with a space
+        text = text.replace('-', ' ')
+        
         # Replace multiple spaces again in case punctuation removal created extra spaces
         text = re.sub(r'\s+', ' ', text)
+        
+        # Restore negative signs
+        text = text.replace('NEG_SIGN_PLACEHOLDER', '-')
         
         # Strip leading and trailing spaces
         return text.strip()

@@ -54,11 +54,9 @@ def test_4_correct_range_random_scores(test_cases):
                     if all_score_values_found:
                         break
 
-                    # Normalize the captured output to remove spaces, punctuation, and symbols
-                    normalized_captured_print_statements = [normalize_text(captured_print) for captured_print in captured_lines]
-                    normalized_captured_print_statements = '\n'.join(normalized_captured_print_statements)
-
-                    combined_normalized_printed += f"\n{normalized_captured_print_statements}"
+                # Normalize the captured output to remove spaces, punctuation, and symbols
+                normalized_captured_print_statements = [normalize_text(captured_print) for captured_print in captured_lines]
+                normalized_captured_print_statements = '\n'.join(normalized_captured_print_statements)
                         
                 assert all_score_values_found, format_error_message(
                     custom_message=(f"Your code isn't generating random scores in the correct range. Across 5 games * {num_repeat_iterations} "
@@ -67,8 +65,8 @@ def test_4_correct_range_random_scores(test_cases):
                                     f"Your code should be capable of generating these values (no more, no less):\n\n"
                                     f"{valid_score_values}\n\n"
                                     f"Double check that you are using the correct arguments in your random function to produce the full range of values.\n\n"
-                                    f"Below are all the printed messages from your code (ignoring punctuation / capitalization):\n\n"
-                                    f"{combined_normalized_printed}\n\n"),
+                                    f"Below are all the printed messages from the most recent test run of your code (ignoring punctuation / capitalization):\n\n"
+                                    f"{normalized_captured_print_statements}\n\n"),
                     test_case=test_case,
                     display_inputs=True,
                 )
