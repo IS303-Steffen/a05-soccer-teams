@@ -1,0 +1,72 @@
+[
+    {
+        "id_input_test_case": 1,
+        "input_test_case_description": "5 Game Season",
+        "inputs": [
+            "BYU",
+            "5",
+            "University of Utah",
+            "UVU",
+            "Utah State",
+            "UNLV",
+            "TCU"
+        ],
+        "input_prompts": [
+            "Enter the name of your home team: ",
+            "Enter the number of games that BYU will play: ",
+            "\nEnter the name of the away team for game 1: ",
+            "\nEnter the name of the away team for game 2: ",
+            "\nEnter the name of the away team for game 3: ",
+            "\nEnter the name of the away team for game 4: ",
+            "\nEnter the name of the away team for game 5: "
+        ],
+        "printed_messages": [
+            "BYU's score: 1 - University of Utah's score: 2",
+            "BYU's score: 3 - UVU's score: 1",
+            "BYU's score: 3 - Utah State's score: 1",
+            "BYU's score: 2 - UNLV's score: 1",
+            "BYU's score: 2 - TCU's score: 0",
+            "\nTeams won against:",
+            "\tUVU",
+            "\tUtah State",
+            "\tUNLV",
+            "\tTCU",
+            "\nTeams lost against:",
+            "\tUniversity of Utah",
+            "\nFinal season record: 4 - 1",
+            "Qualified for the NCAA Soccer Tournament!"
+        ],
+        "invalid_input_prompts": [],
+        "invalid_printed_messages": [],
+        "bools": {},
+        "ints": {
+            "num_games_played": 5,
+            "game": 5,
+            "home_score": 2,
+            "away_score": 0,
+            "num_wins": 4,
+            "num_losses": 1
+        },
+        "strings": {
+            "home_team_name": "BYU",
+            "away_team_name": "TCU",
+            "team": "University of Utah"
+        },
+        "floats": {},
+        "lists": {},
+        "dicts": {
+            "teams_played_against": {
+                "Won Against": [
+                    "UVU",
+                    "Utah State",
+                    "UNLV",
+                    "TCU"
+                ],
+                "Lost Against": [
+                    "University of Utah"
+                ]
+            }
+        },
+        "example_output": "Enter the name of your home team: BYU\nEnter the number of games that BYU will play: 5\n\nEnter the name of the away team for game 1: University of Utah\nBYU's score: 1 - University of Utah's score: 2\n\nEnter the name of the away team for game 2: UVU\nBYU's score: 3 - UVU's score: 1\n\nEnter the name of the away team for game 3: Utah State\nA tie score! Generating scores again.\nBYU's score: 3 - Utah State's score: 1\n\nEnter the name of the away team for game 4: UNLV\nBYU's score: 2 - UNLV's score: 1\n\nEnter the name of the away team for game 5: TCU\nA tie score! Generating scores again.\nBYU's score: 2 - TCU's score: 0\n\nTeams won against:\n\tUVU\n\tUtah State\n\tUNLV\n\tTCU\n\nTeams lost against:\n\tUniversity of Utah\n\nFinal season record: 4 - 1\nQualified for the NCAA Soccer Tournament!"
+    }
+]
