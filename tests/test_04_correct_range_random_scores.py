@@ -82,4 +82,4 @@ def test_04_correct_range_random_scores(current_test_name, input_test_cases):
     except Exception as outer_e:
         # Catches any problem in grabbing the test cases
         input_test_case = {"id_test_case": None}
-        exception_message_for_students(outer_e, test_case=input_test_case) 
+        exception_message_for_students(outer_e, test_case=input_test_case, current_test_name=current_test_name) 

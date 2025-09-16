@@ -2,6 +2,17 @@ max_score = 10  # This value is pulled by yml_generator.py to assign a score to 
 from conftest import normalize_text, load_student_code, format_error_message, exception_message_for_students, round_match, get_similarity_feedback
 import re
 
+# ===============
+# PHRASES TO SKIP
+# ===============
+
+phrases_to_skip =[
+    "a tie score generating scores again",
+    "qualified for the ncaa soccer tournament",
+    "you had a good season",
+    "your team needs to practice"
+]
+
 # Checks if the expected printed messages actually appear, but doesn't check for specific inputs or correct calculations.
 def test_02_printed_messages(current_test_name, input_test_cases):
     try:
@@ -43,10 +54,7 @@ def test_02_printed_messages(current_test_name, input_test_cases):
                 expected_phrase = normalize_text(expected_phrase)
 
                 # Skip over phrases that should only sometimes print
-                if expected_phrase in ["a tie score generating scores again",
-                                       "qualified for the ncaa soccer tournament",
-                                       "you had a good season",
-                                       "your team needs to practice"]:
+                if expected_phrase in phrases_to_skip:
                     continue
 
                 # Convert the expected phrase into a regex pattern (replace "wildcard" with a regex wildcard for any text)
@@ -91,6 +99,6 @@ def test_02_printed_messages(current_test_name, input_test_cases):
     
     except Exception as e:
         # Handle other exceptions
-        exception_message_for_students(e, input_test_case)
+        exception_message_for_students(e, input_test_case, current_test_name)
 
             

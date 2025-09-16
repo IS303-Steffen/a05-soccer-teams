@@ -1,8 +1,8 @@
-#### Assignment 6
+#### Assignment 5
 # Soccer Teams
 You’ll be writing a python program that asks the user to enter a home soccer team and the number of games they’ll play in a season. It will then ask about the teams they play against and randomly generate scores for games they play. It will then display information about the home team’s wins, losses, and overall performance
 
-Put your code in the `a06_soccer_teams.py` file. Do not edit or delete any other files.
+Put your code in the `a05_soccer_teams.py` file. Do not edit or delete any other files.
 
 ## Libraries Required
 - `import random`
@@ -64,10 +64,15 @@ game this will be for.
 
 Push your code up to your GitHub repository to receive credit. 
 
-## Grading Rubric
-See the Rubric.md file. If you pass all the automated tests you will receive full credit.
-
+## Rubric
 Note that because this assignment depends on random number generation, some of the tests take a few seconds longer to run because they are running many times to test out many different number generation possibilities.
+
+- See `RUBRIC.md` for details on each of the tests you're scored on.
+- To see what score you'll receive, run the tests using the testing tab (it looks like a beaker).
+    - In the testing tab, press `Configure Python Tests`, then choose `pytest`, then `tests`, and then press the `Run Tests` button.
+        - If you accidentally choose the wrong options for `Configure Python Tests`, to choose again, go to `View` > `Command Palette` and then type `Python: Configure Tests` and hit enter. Then choose the options above again.
+- To see your results and any error messages, right click the `TEST_RESULTS_SUMMARY.md` file and choose `Open Preview`.
+
 
 ## Example Output
 Note that because scores are randomly chosen, your output will vary, even with identical inputs.

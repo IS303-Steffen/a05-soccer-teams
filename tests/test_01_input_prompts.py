@@ -89,5 +89,5 @@ def test_01_input_prompts(current_test_name, input_test_cases):
     
     except Exception as e:
         # Handle other exceptions
-        exception_message_for_students(e, input_test_case)
+        exception_message_for_students(e, input_test_case, current_test_name)
 

@@ -2,7 +2,7 @@ max_score = 5 # This value is pulled by yml_generator.py to assign a score to th
 import re
 from conftest import default_module_to_test, format_error_message, exception_message_for_students
 
-def test_07_sufficient_comments():
+def test_07_sufficient_comments(current_test_name):
     try:
         required_num_comments = 7
         num_comments = 0
@@ -36,4 +36,4 @@ def test_07_sufficient_comments():
     
     except Exception as e:
         test_case = {"id_test_case": None}
-        exception_message_for_students(e, test_case)
+        exception_message_for_students(e, test_case, current_test_name)
