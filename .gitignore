@@ -11,6 +11,7 @@ movies.db
 a01_solution_submitting_to_github
 TEST_RESULTS_SUMMARY.md
 test_scores.csv
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

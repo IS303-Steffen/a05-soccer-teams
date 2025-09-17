@@ -20,7 +20,7 @@ The tests will ignore spacing, capitalization, and punctuation, but you will fai
         Your input prompts must be the same as the expected input prompts of each input test case. 
         <br>
         <br>
-        See the <code>descriptions_ot_test_cases</code> folder for expected input prompts for each input test case.
+        See the <code>descriptions_of_test_cases</code> folder for expected input prompts for each input test case.
         </td>  
         </td>
         <td>10</td>
@@ -32,14 +32,14 @@ The tests will ignore spacing, capitalization, and punctuation, but you will fai
         Your printed output must be the same as the expected output of each input test case. This includes the correct BMI calculations and BMI categories.
         <br>
         <br>
-        See the <code>descriptions_ot_test_cases</code> folder for expected printed messages for each input test case.       
+        See the <code>descriptions_of_test_cases</code> folder for expected printed messages for each input test case.       
         </td>
         <td>10</td>
     </tr>
     <tr style="text-align: left">
         <td>3. No Tie Scores</td>
         <td>
-        <b>Input test cases used:</b> 1 (repeated 50 times)<br><br>
+        <b>Input test cases used:</b> 1 (repeated multiple times)<br><br>
         Your code must not allow tie scores. This test will run the test case 50 times and check for any ties occuring in any of the games.  
         </td>
         <td>25</td>
@@ -47,7 +47,7 @@ The tests will ignore spacing, capitalization, and punctuation, but you will fai
     <tr style="text-align: left">
         <td>4. Correct Range of Random Scores</td>
         <td>
-        <b>Input test cases used:</b> 1 (repeated 50 times)<br><br>
+        <b>Input test cases used:</b> 1 (repeated multiple times)<br><br>
         Your code must allow scores from 0-3 (inclusive) be generated, no more and no less. 
         </td>
         <td>15</td>
@@ -67,7 +67,7 @@ The tests will ignore spacing, capitalization, and punctuation, but you will fai
     <tr style="text-align: left">
         <td>6. Final Performance Messages</td>
         <td>
-        <b>Input test cases used:</b> 1(repeated 50 times)<br><br>
+        <b>Input test cases used:</b> 1(repeated multiple times)<br><br>
         Your printed output must accurately calculate the win/loss ratio and always print out one of 3 messages based on the logic given in the instructions section above:
           <ul>
             <li><code>Qualified for the NCAA Soccer Tournament!</code></li>
@@ -76,7 +76,7 @@ The tests will ignore spacing, capitalization, and punctuation, but you will fai
           </ul>        
         </td>
         </td>
-        <td>25</td>
+        <td>10</td>
     </tr>
     <tr style="text-align: left">
         <td>7. Sufficient Comments </td>

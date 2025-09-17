@@ -15,7 +15,7 @@ Put your code in the `a05_soccer_teams.py` file. Do not edit or delete any other
     - You can assume the user will enter a valid integer, you don't need enter checks for invalid input.
     - Tip: When first testing your code, keep the number of games low (like 2) so it is quicker to run through.
 
-### For each game you home team will play:
+### For each game your home team will play:
 - Ask the name of the away team (e.g. “Utah State”) and include which number 
 game this will be for.
   - `Enter the name of the away team for game <game number>: `
