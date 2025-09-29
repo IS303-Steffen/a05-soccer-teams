@@ -77,7 +77,8 @@ Note that because this assignment depends on random number generation, some of t
 ## Example Output
 Note that because scores are randomly chosen, your output will vary, even with identical inputs.
 
-```Enter the name of your home team: BYU
+```
+Enter the name of your home team: BYU
 Enter the number of games that BYU will play: 5
 
 Enter the name of the away team for game 1: University of Utah
