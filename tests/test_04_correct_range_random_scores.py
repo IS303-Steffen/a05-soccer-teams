@@ -52,7 +52,7 @@ def test_04_correct_range_random_scores(current_test_name, input_test_cases):
                 for line in captured_lines:
 
                     # ignore the line that has the final season record
-                    if 'record' in line:
+                    if 'record' in line.lower():
                         continue
 
                     found_numbers_strings = re.findall(r'\d+', line)
